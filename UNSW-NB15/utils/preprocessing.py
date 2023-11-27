@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import sys, os , warnings , pandas_profiling
+import sys, os , warnings , ydata_profiling
 from collections import defaultdict
 from sklearn.preprocessing import LabelEncoder, StandardScaler ,MinMaxScaler,RobustScaler, PowerTransformer, normalize
 from category_encoders import *
@@ -58,7 +58,7 @@ def preprocess(x_train, x_test, data_cols, preprocessor = "StandardScaler",rejec
     """
     if reject_features :
         to_drop =['ct_srv_dst', 'ct_srv_src', 'dloss', 'dpkts', 'is_ftp_login', 'sloss', 'spkts', 'swin']
-        #profile = pandas_profiling.ProfileReport(x_train)
+        #profile = ydata_profiling.ProfileReport(x_train)
         #to_drop = profile.get_rejected_variables(0.95)
         x_train.drop(to_drop,axis=1,inplace=True)
         x_test.drop(to_drop,axis=1,inplace=True)

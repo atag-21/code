@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import sys, os , warnings
-import pandas_profiling
+import ydata_profiling
 from sklearn.preprocessing import LabelEncoder, StandardScaler ,MinMaxScaler,RobustScaler, PowerTransformer, normalize
 from category_encoders import *
 
@@ -56,7 +56,7 @@ def preprocess(x_train, x_test, data_cols, preprocessor = "StandardScaler",rejec
     Scale and transform data with an option to remove highly correlated features
     """
     if reject_features :
-        # profile = pandas_profiling.ProfileReport(x_train)
+        # profile = ydata_profiling.ProfileReport(x_train)
         # to_drop = profile.get_rejected_variables()
         to_drop = ['dst_host_srv_serror_rate','num_root','rerror_rate',
                     'serror_rate','srv_rerror_rate','srv_serror_rate']
